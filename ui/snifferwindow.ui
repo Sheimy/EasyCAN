@@ -19,6 +19,11 @@
    </property>
    <item>
     <widget class="QTreeView" name="treeView">
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
      <property name="selectionMode">
       <enum>QAbstractItemView::NoSelection</enum>
      </property>
@@ -31,14 +36,14 @@
        <item>
         <widget class="QPushButton" name="btNotch">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
          <property name="maximumSize">
           <size>
-           <width>150</width>
+           <width>16777215</width>
            <height>16777215</height>
           </size>
          </property>
@@ -50,14 +55,14 @@
        <item>
         <widget class="QPushButton" name="btUnNotch">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
          <property name="maximumSize">
           <size>
-           <width>150</width>
+           <width>16777215</width>
            <height>16777215</height>
           </size>
          </property>
@@ -219,14 +224,14 @@
        <item>
         <widget class="QGroupBox" name="groupBox">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+          <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
          <property name="maximumSize">
           <size>
-           <width>150</width>
+           <width>16777215</width>
            <height>16777215</height>
           </size>
          </property>
@@ -240,7 +245,7 @@
           <item>
            <widget class="QListWidget" name="listWidget">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+             <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
@@ -253,9 +258,14 @@
             </property>
             <property name="maximumSize">
              <size>
-              <width>150</width>
+              <width>16777215</width>
               <height>16777215</height>
              </size>
+            </property>
+            <property name="font">
+             <font>
+              <bold>true</bold>
+             </font>
             </property>
            </widget>
           </item>
@@ -268,7 +278,7 @@
              <widget class="QPushButton" name="btAll">
               <property name="maximumSize">
                <size>
-                <width>75</width>
+                <width>16777215</width>
                 <height>16777215</height>
                </size>
               </property>
@@ -281,7 +291,7 @@
              <widget class="QPushButton" name="btNone">
               <property name="maximumSize">
                <size>
-                <width>75</width>
+                <width>16777215</width>
                 <height>16777215</height>
                </size>
               </property>

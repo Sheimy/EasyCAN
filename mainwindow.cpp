@@ -39,7 +39,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     selfRef = this;
 
-    this->setWindowTitle("Savvy CAN V" + QString::number(VERSION) + " [Built " + QString(__DATE__) +"]");
+    this->setWindowTitle("Easy CAN V" + QString::number(VERSION) + " [Built " + QString(__DATE__) +"]by Ahmed Sheimy");
 
     model = new CANFrameModel(this); // set parent to mainwindow to prevent canframemodel to change thread (might be done by setModel but just in case)
 
@@ -65,7 +65,7 @@ MainWindow::MainWindow(QWidget *parent) :
     sysFont.setPointSize(fontSize);
     verticalHeader->setDefaultSectionSize(sysFont.pixelSize());
     verticalHeader->setFont(QFont());
-    ui->canFramesView->setFont(sysFont);
+    //ui->canFramesView->setFont(sysFont);
 
     QHeaderView *HorzHdr = ui->canFramesView->horizontalHeader();
     HorzHdr->setFont(QFont());

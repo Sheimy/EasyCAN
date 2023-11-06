@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Name=SavvyCAN
+Name=EasyCAN
 GenericName=CANBus reverse engineering tool
 Comment=Facilitates reverse engineering of canbus captures
 Exec=SavvyCAN

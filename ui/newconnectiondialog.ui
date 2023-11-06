@@ -50,7 +50,7 @@
       <item row="0" column="0">
        <widget class="QRadioButton" name="rbGVRET">
         <property name="text">
-         <string>Serial Connection (GVRET)</string>
+         <string>Serial Connection (EASYCAN)</string>
         </property>
         <property name="checked">
          <bool>true</bool>
@@ -60,7 +60,7 @@
       <item row="1" column="0">
        <widget class="QRadioButton" name="rbRemote">
         <property name="text">
-         <string>Network connection (GVRET)</string>
+         <string>Network connection (EASYCAN)</string>
         </property>
        </widget>
       </item>

@@ -84,7 +84,7 @@ QVariant CANConnectionModel::data(const QModelIndex &index, int role) const
                     switch (conn_p->getType()) {
                         case CANCon::KVASER: return "KVASER";
                         case CANCon::SERIALBUS: return "SerialBus";
-                        case CANCon::GVRET_SERIAL: return "GVRET";
+                        case CANCon::GVRET_SERIAL: return "EASYCAN";
                         case CANCon::KAYAK: return "socketcand";
                         case CANCon::LAWICEL: return "LAWICEL";
                         case CANCon::CANSERVER: return "CANserver";

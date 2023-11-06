@@ -56,6 +56,8 @@ QVariant SnifferModel::data(const QModelIndex &index, int role) const
     if(!item) QVariant();
 
     int col = index.column();
+    if (role == Qt::TextAlignmentRole)
+        return Qt::AlignCenter; //maybe different result depending on column/row
 
     switch(role)
     {

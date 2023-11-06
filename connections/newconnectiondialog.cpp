@@ -41,7 +41,7 @@ NewConnectionDialog::NewConnectionDialog(QVector<QString>* gvretips, QVector<QSt
     ui->lblSerialSpeed->setHidden(true);
     selectSerial();
 
-    qDebug() << "Was passed " << remoteDeviceIPGVRET->count() << " remote GVRET IPs";
+    qDebug() << "Was passed " << remoteDeviceIPGVRET->count() << " remote EASYCAN IPs";
     qDebug() << "Was passed " << remoteBusKayak->count() << " remote Kayak Busses";
 }
 

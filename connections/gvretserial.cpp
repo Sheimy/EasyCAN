@@ -9,11 +9,11 @@
 #include "gvretserial.h"
 
 GVRetSerial::GVRetSerial(QString portName, bool useTcp) :
-    CANConnection(portName, "gvret", CANCon::GVRET_SERIAL, 0, 0, 3, 4000, true),
+    CANConnection(portName, "easycan", CANCon::GVRET_SERIAL, 0, 0, 3, 4000, true),
     mTimer(this), /*NB: set this as parent of timer to manage it from working thread */
     useTcp(useTcp)
 {
-    sendDebug("GVRetSerial()");
+    sendDebug("EASYCANSerial()");
 
     serial = nullptr;
     tcpClient = nullptr;
@@ -35,7 +35,7 @@ GVRetSerial::GVRetSerial(QString portName, bool useTcp) :
 GVRetSerial::~GVRetSerial()
 {
     stop();
-    sendDebug("~GVRetSerial()");
+    sendDebug("~EASYCANSerial()");
 }
 
 void GVRetSerial::sendDebug(const QString debugText)
@@ -122,7 +122,7 @@ void GVRetSerial::piSetBusSettings(int pBusIdx, CANBus bus)
     /* copy bus config */
     setBusConfig(pBusIdx, bus);
 
-    qDebug() << "About to update bus " << pBusIdx << " on GVRET";
+    qDebug() << "About to update bus " << pBusIdx << " on EASYCAN";
     if (pBusIdx == 0)
     {
         can0Baud = bus.getSpeed();
@@ -234,7 +234,7 @@ bool GVRetSerial::piSendFrame(const CANFrame& frame)
     int c;
     quint32 ID;
 
-    //qDebug() << "Sending out GVRET frame with id " << frame.ID << " on bus " << frame.bus;
+    //qDebug() << "Sending out EASYCAN frame with id " << frame.ID << " on bus " << frame.bus;
 
     framesRapid++;
 
@@ -304,7 +304,7 @@ void GVRetSerial::connectDevice()
     if (useTcp)
     {
         // /*
-        sendDebug("TCP Connection to a GVRET device");
+        sendDebug("TCP Connection to a EASYCAN device");
         tcpClient = new QTcpSocket();
         tcpClient->connectToHost(getPort(), 23);
         connect(tcpClient, SIGNAL(readyRead()), this, SLOT(readSerialData()));
@@ -373,7 +373,7 @@ void GVRetSerial::connectDevice()
 
 void GVRetSerial::deviceConnected()
 {
-    sendDebug("Connecting to GVRET Device!");
+    sendDebug("Connecting to EASYCAN Device!");
     QByteArray output;
     output.append((char)0xE7); //this puts the device into binary comm mode
     output.append((char)0xE7);
@@ -553,7 +553,7 @@ void GVRetSerial::connectionTimeout()
     if (CANCon::NOT_CONNECTED==getStatus()) //no?
     {
         //then emit the the failure signal and see if anyone cares
-        sendDebug("Failed to connect to GVRET at that com port");
+        sendDebug("Failed to connect to EASYCAN at that com port");
 
         //toggle the serial mode and try again
         espSerialMode = !espSerialMode;
@@ -848,7 +848,7 @@ void GVRetSerial::procRXChar(unsigned char c)
             break;
         case 3:
             buildTimeBasis += ((uint32_t)c << 24);
-            qDebug() << "GVRET firmware reports timestamp of " << buildTimeBasis;
+            qDebug() << "EASYCAN firmware reports timestamp of " << buildTimeBasis;
             timeAtGVRETSync = QDateTime::currentMSecsSinceEpoch() * 1000;
 
             rebuildLocalTimeBasis();
@@ -1084,7 +1084,7 @@ void GVRetSerial::procRXChar(unsigned char c)
 
 void GVRetSerial::rebuildLocalTimeBasis()
 {
-    qDebug() << "Rebuilding GVRET time base. GVRET local base = " << buildTimeBasis;
+    qDebug() << "Rebuilding EASYCAN time base. EASYCAN local base = " << buildTimeBasis;
 
     /*
       our time basis is the value we have to modulate the main system basis by in order

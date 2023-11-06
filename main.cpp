@@ -36,9 +36,9 @@ int main(int argc, char *argv[])
     a.addLibraryPath("plugins");
 
     //These things are used by QSettings to set up setting storage
-    a.setOrganizationName("EVTV");
-    a.setApplicationName("SavvyCAN");
-    a.setOrganizationDomain("evtv.me");
+    a.setOrganizationName("Btouchless");
+    a.setApplicationName("EasyCAN");
+    a.setOrganizationDomain("Btouchless.com");
     QSettings::setDefaultFormat(QSettings::IniFormat);
 
     a.mainWindow = new MainWindow();
